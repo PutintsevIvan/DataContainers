@@ -1,4 +1,5 @@
 #include<iostream>
+#include<ctime>
 using namespace std;
 using std::cin;
 using std::endl;
@@ -152,7 +153,8 @@ public:
 	{
 		while (Head)pop_front();
 		for (Element* Temp = other.Head; Temp; Temp = Temp->pNext)
-			push_back(Temp->Data);
+			push_front(Temp->Data);
+		revers();
 		cout << "CopyAssignment:\t" << this <<"<-"<<&other<< endl;
 		return *this;
 	}
@@ -252,6 +254,17 @@ public:
 		size--;
 	}
 	//   Methods:
+	void revers()
+	{
+		ForwardList reverse;
+		while (Head)
+		{
+			reverse.push_front(Head->Data);
+			this->pop_front();
+		}
+		this->Head = reverse.Head;
+		reverse.Head = nullptr;
+	}
 	void print()const
 	{
 		/*Element* Temp = Head; //Temp-это итератор.
@@ -283,8 +296,9 @@ ForwardList operator+(const ForwardList& left, const ForwardList& right)
 //#define INSERT_CHECK
 //#define RANGE_BASE_FOR_ARRAY
 //#define RAGE_BASE_FOR_LIST
-#define COPY_METHODS_CHECK
+//#define OPERATOR_PLUS_CHECK
 #define FORWARD_LIST_PREFORMNCE_TEST
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -344,11 +358,12 @@ void main()
 	}
 	cout << endl;
 #endif // RANGE_BASE_FOR_LIST
+#ifdef OPERATOR_PLUS_CHECK
 
 	ForwardList list1 = { 3,5,8,13,21 };
 	list1 = list1;
 	for (int i : list1)cout << i << tab; cout << endl;
-	
+
 	//ForwardList list2 = { 3,5,8,13,21 };       //Copy constructor
 	ForwardList list2 = { 34,55,89 };
 
@@ -356,11 +371,31 @@ void main()
 	for (int i : list2)cout << i << tab; cout << endl;
 
 	ForwardList list3;
-	list3=list1 + list2;   //Move assignment
+	list3 = list1 + list2;   //Move assignment
 	for (int i : list3)cout << i << tab; cout << endl;
 
 	list1.print();
 	list2.print();
+#endif // OPERATOR_PLUS_CHECK
 
-
-}
+	int n;
+	cout << "¬ведите размер списка: "; cin >> n;
+	ForwardList list;
+	clock_t start = clock();
+	for (int i = 0; i < n; i++)
+	{
+		int value = rand() % 100;
+		//cout << value << tab;
+		list.push_front(value);
+	}
+	cout << endl;
+	//for (int i : list)cout << i << tab; cout << endl;
+	clock_t end = clock();
+	cout << "Data loaded for: "<<double(end-start)/CLOCKS_PER_SEC << endl;
+	cout << "Copying List...." << endl;
+	start = clock();
+	ForwardList list2 = list;
+	//for (int i : list2)cout << i << tab; cout << endl;
+	end = clock();
+	cout << "List copied for: " << double(end - start) / CLOCKS_PER_SEC << endl;
+	}	
