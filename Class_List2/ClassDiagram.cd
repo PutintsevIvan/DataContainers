@@ -11,7 +11,17 @@
           <NewMemberFileName>main.cpp</NewMemberFileName>
         </TypeIdentifier>
       </Class>
-      <Class Name="List::Iterator">
+      <Class Name="List::ConstBaseIterator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>main.cpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="List::ConstIterator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>main.cpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="List::ConstReverseIterator" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>main.cpp</NewMemberFileName>
         </TypeIdentifier>
