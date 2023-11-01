@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ForwardList", "ForwardList\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class_List2", "Class_List2\Class_List2.vcxproj", "{48CB6C31-3018-47D9-A7D6-2F499A10CE23}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinareTree", "BinareTree\BinareTree.vcxproj", "{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{48CB6C31-3018-47D9-A7D6-2F499A10CE23}.Release|x64.Build.0 = Release|x64
 		{48CB6C31-3018-47D9-A7D6-2F499A10CE23}.Release|x86.ActiveCfg = Release|Win32
 		{48CB6C31-3018-47D9-A7D6-2F499A10CE23}.Release|x86.Build.0 = Release|Win32
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Debug|x64.ActiveCfg = Debug|x64
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Debug|x64.Build.0 = Debug|x64
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Debug|x86.ActiveCfg = Debug|Win32
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Debug|x86.Build.0 = Debug|Win32
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Release|x64.ActiveCfg = Release|x64
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Release|x64.Build.0 = Release|x64
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Release|x86.ActiveCfg = Release|Win32
+		{212A20AB-FE16-4A4B-8A1F-DDEE073E5359}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
