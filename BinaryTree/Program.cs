@@ -32,6 +32,7 @@ namespace BinaryTree
                 sw.Stop();
                 Console.WriteLine($"Вычесленно за :{sw.Elapsed}");
                 Console.WriteLine($"Максимальное значение в дереве:{tree.MaxValue()}");
+                //TreePreformance<int>.Measure("Максимальное значение в дереве: ", tree.MaxValue, tree);
                 Console.WriteLine($"Сумма элементов дерева:{tree.Sum()}");
                 Console.WriteLine($"Количество элементов дерева:{tree.Count()}");
                 Console.WriteLine($"средне-арифметическое элементов дерева:{tree.Avarage()}");
