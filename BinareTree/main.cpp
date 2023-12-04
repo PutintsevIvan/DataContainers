@@ -243,7 +243,6 @@ void tree_print(int depth,int width)const
 void balance(Element* Root)
 {
 	if (Root == nullptr)return;
-	
 	if (abs(count(Root->pLeft) - count(Root->pRight) < 2))return;
 		if (count(Root->pLeft) > count(Root->pRight))
 		{
