@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,19 +15,35 @@ namespace Police
         public int ID
         {
             get => id;
-           private set => id=value<Violations.list.Count ? value : 0;
+            private set => id=value<Violations.list.Count ? value : 0;
         }
         public DateTime DateTime { get; private set; }
         public string Place { get; private set; }
-        public Crime(int id,DateTime dateTime,string place)
+        public Crime(int id, DateTime dateTime, string place)
         {
             ID=id;
             DateTime=dateTime;
             Place=place;
         }
+        public Crime(string description)
+        {
+            string[] elements = description.Split(' ');
+            description=description.Replace(elements[0]+" ", "");
+            description=description.Replace(elements[1]+" ", "");
+            DateTime.FromBinary(Convert.ToInt64(elements[0]));
+            long timestamp = Convert.ToInt64(elements[1]);
+            DateTime=DateTime.FromBinary(timestamp);
+            ID=Convert.ToInt32(elements[1]);
+            Place=description;
+        }
         public override string ToString()
         {
-            return $"{DateTime.ToString()}: {Violations.list[ID].PadRight(30)}{Place.PadRight(20)}";
+            return $"{DateTime.ToBinary()} {ID}  {Place}";
+        }
+        public string ToScreen()
+        {
+            return $"{DateTime.ToString()}:{Violations.list[ID].PadRight(30)}{Place}";
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//#define SAVE_CHECK
+#define LOAD_CHECK
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Instrumentation;
@@ -21,12 +23,13 @@ namespace Police
              };
              Console.WriteLine(Violations.list.Count);
              Crime crime = new Crime(1, new DateTime(2023, 05, 23), "ул.Ленина");
-             Console.WriteLine(crime);*/ 
+             Console.WriteLine(crime);*/
             #endregion
 
-            Dictionary<LicencePlate,List<Crime>>police_base = new Dictionary<LicencePlate, List <Crime>>()
+#if SAVE_CHECK
+            Dictionary<LicencePlate, List<Crime>> police_base = new Dictionary<LicencePlate, List<Crime>>()
             {
-                [new LicencePlate ("m137nb")]=new List<Crime>()
+                [new LicencePlate("m137nb")]=new List<Crime>()
                 {
                     new Crime(1,new DateTime(2023,05,23,13,30,00),"ул.Ленина"),
                     new Crime(2,new DateTime(2023,05,23,13,33,00),"ул.Ленина")
@@ -69,8 +72,13 @@ namespace Police
 
             Base @base = new Base(police_base);
             @base.Print();
-            @base.Save("base.txt");
+            @base.Save("base.txt"); 
+#endif
+            Base @base = new Base();
+            @base.Load("Base.txt");
+            @base.Print();
+
         }
-       
+        const string delimiter = "\n------------------------------\n";
     }
 }
