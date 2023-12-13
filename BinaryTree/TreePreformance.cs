@@ -9,13 +9,14 @@ namespace BinaryTree
 {
     internal class TreePreformance<T>
     {
-        public static void Measure(string message,Delegate @delegate,Tree obj)
+        public delegate T Method();
+        public static void Measure(string message,Method method)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            Object value = @delegate.Method.Invoke(obj,null);
-            Console.WriteLine(value. ToString());
+            T value = method();
             sw.Stop();
+            Console.WriteLine($"{message.PadRight(42)} {value.ToString().PadLeft(12)},вычесленно за{sw.Elapsed.ToString(/*"ss\\fffffff"*/)}Секунд.");
 
         }
     }

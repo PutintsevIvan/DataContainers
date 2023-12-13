@@ -22,7 +22,7 @@ namespace BinaryTree
             {
                 tree.Insert(random.Next(100));
             }
-            tree.Print();
+            //tree.Print();
             //tree.Clear();
             Stopwatch sw = new Stopwatch();
             try
@@ -31,13 +31,17 @@ namespace BinaryTree
                 Console.WriteLine($"Минимальное значение в дереве:{tree.MinValue()}");
                 sw.Stop();
                 Console.WriteLine($"Вычесленно за :{sw.Elapsed}");
-                Console.WriteLine($"Максимальное значение в дереве:{tree.MaxValue()}");
-                //TreePreformance<int>.Measure("Максимальное значение в дереве: ", tree.MaxValue, tree);
-                Console.WriteLine($"Сумма элементов дерева:{tree.Sum()}");
-                Console.WriteLine($"Количество элементов дерева:{tree.Count()}");
-                Console.WriteLine($"средне-арифметическое элементов дерева:{tree.Avarage()}");
-                Console.WriteLine($"Глубина дерева:{tree.Depth()}");
+                //Console.WriteLine($"Максимальное значение в дереве:{tree.MaxValue()}");
+                //Console.WriteLine($"Сумма элементов дерева:{tree.Sum()}");
+                //Console.WriteLine($"Количество элементов дерева:{tree.Count()}");
+                //Console.WriteLine($"средне-арифметическое элементов дерева:{tree.Avarage()}");
+                //Console.WriteLine($"Глубина дерева:{tree.Depth()}");
                 Console.Write("Введите удаляемое значение:");
+                TreePreformance<int>.Measure("Максимальное значение в дереве: ", tree.MaxValue);
+                TreePreformance<int>.Measure("Сумма элементов дерева:", tree.Sum);
+                TreePreformance<int>.Measure("Количество элементов дерева:", tree.Count);
+                TreePreformance<double>.Measure("Среднее-арифметическое элементов дерева:", tree.Avarage);
+                TreePreformance<int>.Measure("Глубина дерева:", tree.Depth);
                 int value = Convert.ToInt32(Console.ReadLine());
                 tree.Erase(value);
                 tree.Print();
